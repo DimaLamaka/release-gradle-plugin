@@ -15,10 +15,5 @@ class RuClevertecPluginReleasePluginTest extends Specification {
         given:
         def project = ProjectBuilder.builder().build()
 
-        when:
-        project.plugins.apply("ru.clevertec.plugin.release")
-
-        then:
-        project.tasks.findByName("checkGitStatus") != null
     }
 }

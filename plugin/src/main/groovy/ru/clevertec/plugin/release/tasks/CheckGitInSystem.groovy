@@ -5,7 +5,7 @@ import org.gradle.api.GradleScriptException
 import org.gradle.api.tasks.TaskAction
 import ru.clevertec.plugin.release.GitUtils
 
-class CheckGitInSystem extends DefaultTask{
+class CheckGitInSystem extends DefaultTask {
 
     @TaskAction
     def checkGitInSystem() {

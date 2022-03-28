@@ -4,19 +4,19 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import ru.clevertec.plugin.release.GitUtils
 
-class CreateMajorRelease extends DefaultTask{
+class CreateMajorRelease extends DefaultTask {
+
 
     @TaskAction
     def createMajorRelease() {
 
-        def tags = GitUtils.getGitTagsResult
+        def tags = GitUtils.getGitTagsResult()
         println(tags)
 
-
         def tagsArray = tags.split("\n")
-        tagsArray.toList().forEach {println it}
+        tagsArray.toList().forEach { println it }
 
-        def currentVersion = tagsArray[tagsArray.size() -1]
+        def currentVersion = tagsArray[tagsArray.size() - 1]
         println("current version = $currentVersion")
 
         def currentVersionSplitted = currentVersion.split('\\.')
