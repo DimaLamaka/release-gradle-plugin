@@ -37,10 +37,10 @@ class ReleaseGradlePlugin implements Plugin<Project> {
             dependsOn("checkByLastCommit")
             setGroup("release")
         }
-        /*def extension = project.extensions.create("releaseConfig", ReleasePluginExtension)*/
+
         ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
         project.tasks.register("release") {
-            def releaseBranch = extension.getReleaseBranch().convention("master")
+            def releaseBranch = extension.getReleaseBranch().convention("master").get()
 
             setGroup("release")
             if (GitUtils.currentBranch.trim() == releaseBranch) {
