@@ -34,7 +34,7 @@ class ReleaseGradlePlugin implements Plugin<Project> {
         }
 
         project.tasks.register("createMajorRelease", CreateMajorRelease) {
-            dependsOn("checkGitStatus")
+            dependsOn("checkByLastCommit")
             setGroup("release")
         }
         /*def extension = project.extensions.create("releaseConfig", ReleasePluginExtension)*/
