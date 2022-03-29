@@ -7,7 +7,7 @@
  */
 
 plugins {
-    // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
+    // Apply the Java Gradle  plugin development plugin to add support for developing Gradle plugins
     id 'java-gradle-plugin'
 
     // Apply the Groovy plugin to add support for Groovy
