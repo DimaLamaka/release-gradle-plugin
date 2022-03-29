@@ -39,7 +39,7 @@ gradlePlugin {
     }
 }
 
-// Add a source set for  the functional test suite
+// Add a source set for the functional test suite
 sourceSets {
     functionalTest {
     }
