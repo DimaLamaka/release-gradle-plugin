@@ -9,6 +9,12 @@ class CreateMinorRelease extends DefaultTask {
     @TaskAction
     def createMinorRelease() {
         def tags = GitUtils.getGitTagsResult()
+        if(tags.isEmpty()){
+            println("Tags is empty. Create new tag v1.0")
+            GitUtils.createTag("v1.0")
+            ("git push origin v1.0").execute()
+            return
+        }
         println("tags = $tags")
 
 

@@ -12,7 +12,6 @@ import ru.clevertec.plugin.release.tasks.CreateMajorRelease
 import ru.clevertec.plugin.release.tasks.CreateMinorRelease
 
 class ReleaseGradlePlugin implements Plugin<Project> {
-
     void apply(Project project) {
 
         project.tasks.register("checkGitInSystem", CheckGitInSystem) {
@@ -38,9 +37,10 @@ class ReleaseGradlePlugin implements Plugin<Project> {
             dependsOn("checkGitStatus")
             setGroup("release")
         }
-        def extension = project.extensions.create("releaseConfig", ReleasePluginExtension)
+        /*def extension = project.extensions.create("releaseConfig", ReleasePluginExtension)*/
+        ReleasePluginExtension extension = project.getExtensions().create("releaseConfig", ReleasePluginExtension)
         project.tasks.register("release") {
-            def releaseBranch = extension.releaseBranch.get()
+            def releaseBranch = extension.getReleaseBranch().convention("master")
 
             setGroup("release")
             if (GitUtils.currentBranch.trim() == releaseBranch) {
